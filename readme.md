@@ -23,11 +23,12 @@ Lancez l'application selon votre stack (ex: npm start, python app.py)
 
 ## Configuration
 
-- Ajoutez votre clé API météo dans le fichier de configuration approprié.
+- clé forecast
+-clé archive
 
 ## Technologies utilisées
 
-- [Listez ici vos frameworks, bibliothèques, etc.]
+- tout ce qui a dans requirement
 
 ## Contribution
 
