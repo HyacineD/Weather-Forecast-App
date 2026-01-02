@@ -1,0 +1,9 @@
+pandas
+requests
+tabulate
+fastapi
+fastapi.middleware.cors
+uvicorn
+scikit-learn
+numpy
+
