@@ -6,4 +6,4 @@ fastapi.middleware.cors
 uvicorn
 scikit-learn
 numpy
-
+python-dotenv

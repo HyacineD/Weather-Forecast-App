@@ -1,6 +1,7 @@
 import requests
 from datetime import date, timedelta
 from abc import ABC, abstractmethod
+from config import archive_api_key, forecast_api_key
 class Extract(ABC):
     def __init__ (self, latitude:str, longitude:str, params:dict=None, start_date='1990-12-31', end_date='1991-12-31') -> None:
         self.latitude = latitude
@@ -58,7 +59,7 @@ class Extract(ABC):
             print(f"Unexpected error: {type(e).__name__} - {e}")
             raise
 class archive(Extract):
-    url="https://archive-api.open-meteo.com/v1/archive"
+    url=archive_api_key
     def __init__ (self, latitude:str, longitude:str, params=None, start_date=None, end_date=None,api_url:str=url) -> None:
         # Archive API only accepts historical data, so use yesterday as default end_date
 
@@ -92,7 +93,7 @@ class archive(Extract):
         
         return super().fetch_data(self.api_url)
 class forecast(Extract):
-    url="https://api.open-meteo.com/v1/forecast"
+    url=forecast_api_key
     def __init__ (self, latitude:str, longitude:str, params=None, start_date=None, end_date=None,api_url:str=url) -> None:
         super().__init__(latitude, longitude, params, start_date, end_date)
         self.api_url=api_url
