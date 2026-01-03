@@ -46,58 +46,21 @@ pip install -r requirements.txt
 npm install
 ```
 
-### 5️⃣ Configurer les variables d'environnement
 
-**Créez votre fichier `.env` :**
 
-```bash
-# Copiez le template
-cp .env.example .env
-```
 
-**Éditez le fichier `.env` et ajoutez vos clés API :**
 
-```env
-FORECAST_API_KEY=votre_cle_api_forecast_ici
-ARCHIVE_API_KEY=votre_cle_api_archive_ici
-```
 
-#### 🔑 Comment obtenir les clés API ?
-
-1. **Clé Forecast/Archive** : Inscrivez-vous sur [WeatherAPI.com](https://www.weatherapi.com/)
-   - Créez un compte gratuit
-   - Allez dans votre tableau de bord
-   - Copiez votre clé API
-   - Collez-la dans `.env`
-
-⚠️ **IMPORTANT** : Ne partagez JAMAIS votre fichier `.env` ! Il contient vos clés secrètes.
-
-### 6️⃣ Tester la configuration
+### 5 Lancer l'application
 
 ```bash
-# Vérifiez que les variables d'environnement sont bien chargées
-python config.py
+python __init__.py
 ```
-
-Vous devriez voir :
-```
-==================================================
-📋 CONFIGURATION DE L'APPLICATION
-==================================================
-🌐 Serveur: localhost:5000
-🐛 Debug: True
-🏙️  Ville par défaut: Algiers
-🗣️  Langue: fr
-🔑 Forecast API Key: ✅ Définie
-🔑 Archive API Key: ✅ Définie
-==================================================
-```
-
-### 7️⃣ Lancer l'application
-
-```bash
-python run.py
-```
+"""
+f un autre terminal dir :
+cd m_app
+npm run dev
+ou acliqui sur le lien
 
 L'application devrait démarrer sur `http://localhost:5000`
 
