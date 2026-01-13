@@ -39,7 +39,7 @@ Normalement, l'appli devrait tourner sur http://localhost:5000
 Organisation des fichiers
 Voici comment le projet est organisé :
 Weather-Forecast-App/
-├── .env                 # Tes clés API (à ne jamais partager !)
+├── .env                 # Tes clés API 
 ├── .env.example         # Un modèle pour créer ton .env
 ├── .gitignore          # Les fichiers que Git ignore
 ├── config.py           # La config de l'appli
