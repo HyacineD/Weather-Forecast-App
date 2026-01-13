@@ -1,185 +1,125 @@
-# Weather Forecast App 🌤️
+Application Météo pour Alger
+Une petite appli qui te donne la météo à Alger avec un historique des données et des prédictions.
+Ce qu'il te faut avant de commencer
+Tu vas avoir besoin d'installer quelques trucs sur ton ordi :
 
-Une application de prévisions météorologiques pour Alger avec analyse de données historiques et prédictions.
+Python 3.8 ou plus récent – Tu peux le télécharger sur python.org
+Node.js 14 ou plus – Disponible sur nodejs.org
+Git – Pour récupérer le code depuis GitHub
 
-## 📋 Prérequis
-
-Avant de commencer, assurez-vous d'avoir installé :
-- **Python 3.8+** ([Télécharger Python](https://www.python.org/downloads/))
-- **Node.js 14+** ([Télécharger Node.js](https://nodejs.org/))
-- **Git** ([Télécharger Git](https://git-scm.com/))
-
-## 🚀 Installation
-
-### 1️⃣ Cloner le repository
-
-```bash
-git clone https://github.com/HyacineD/Weather-Forecast-App.git
+Comment installer tout ça
+Récupérer le projet
+Ouvre ton terminal et tape :
+bashgit clone https://github.com/HyacineD/Weather-Forecast-App.git
 cd Weather-Forecast-App
-```
-
-### 2️⃣ Créer un environnement virtuel Python
-
-**Sur Windows :**
-```bash
-python -m venv env
+Créer un environnement virtuel Python
+C'est une bonne pratique pour éviter les conflits entre projets.
+Si tu es sur Windows :
+bashpython -m venv env
 env\Scripts\activate
-```
-
-**Sur macOS/Linux :**
-```bash
-python3 -m venv env
+Si tu es sur macOS ou Linux :
+bashpython3 -m venv env
 source env/bin/activate
-```
 
-💡 **Important** : Vous devez activer l'environnement virtuel à chaque fois que vous ouvrez un nouveau terminal !
+Note importante : Tu devras réactiver cet environnement à chaque fois que tu ouvres un nouveau terminal pour bosser sur le projet.
 
-### 3️⃣ Installer les dépendances Python
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4️⃣ Installer les dépendances Node.js (si nécessaire)
-
-```bash
-npm install
-```
-
-
-
-
-
-
-### 5 Lancer l'application
-
-```bash
-python __init__.py
-```
-"""
-f un autre terminal dir :
-cd m_app
+Installer les dépendances Python
+Une fois l'environnement activé :
+bashpip install -r requirements.txt
+Installer les dépendances Node.js
+Si t'en as besoin (pour le frontend) :
+bashnpm install
+Lancer l'application
+Dans ton terminal :
+bashpython __init__.py
+Puis ouvre un autre terminal, va dans le dossier m_app et lance :
+bashcd m_app
 npm run dev
-ou acliqui sur le lien
-
-L'application devrait démarrer sur `http://localhost:5000`
-
-## 📁 Structure du projet
-
-```
+Normalement, l'appli devrait tourner sur http://localhost:5000
+Organisation des fichiers
+Voici comment le projet est organisé :
 Weather-Forecast-App/
-├── .env                      # ⚠️ Vos clés API (local uniquement)
-├── .env.example              # Template des variables d'environnement
-├── .gitignore                # Fichiers ignorés par Git
-├── config.py                 # Configuration centralisée
-├── api.py                    # Appels API météo
-├── run.py                    # Point d'entrée de l'application
-├── dataframe.py              # Manipulation de données
-├── prediction.py             # Modèle de prédiction
-├── requirements.txt          # Dépendances Python
-├── package.json              # Dépendances Node.js
-├── my_app/                   # Frontend
-└── data/                     # Données météo (générées)
-```
+├── .env                 # Tes clés API (à ne jamais partager !)
+├── .env.example         # Un modèle pour créer ton .env
+├── .gitignore          # Les fichiers que Git ignore
+├── config.py           # La config de l'appli
+├── api.py              # Tout ce qui touche aux appels API
+├── run.py              # Le fichier principal pour démarrer
+├── dataframe.py        # Manipulation des données
+├── prediction.py       # Le modèle de prédiction météo
+├── requirements.txt    # Les bibliothèques Python nécessaires
+├── package.json        # Les dépendances JavaScript
+├── my_app/             # Le frontend de l'appli
+└── data/               # Les données météo stockées
+Commandes pratiques
+Voici quelques commandes qui peuvent te servir :
+bash# Activer l'environnement virtuel
+source env/bin/activate          # sur macOS/Linux
+env\Scripts\activate             # sur Windows
 
-## 🔧 Commandes utiles
-
-```bash
-# Activer l'environnement virtuel
-source env/bin/activate         # macOS/Linux
-env\Scripts\activate            # Windows
-
-# Désactiver l'environnement virtuel
+# Désactiver l'environnement
 deactivate
 
-# Mettre à jour les dépendances
+# Réinstaller les dépendances si besoin
 pip install -r requirements.txt
 
 # Lancer l'application
 python run.py
 
-# Tester la configuration
+# Vérifier que la config est bonne
 python config.py
-```
+Problèmes courants et solutions
+"FORECAST_API_KEY n'est pas définie"
+Tu n'as pas créé ton fichier .env. Fais comme ça :
+bashcp .env.example .env
+Ensuite, ouvre le fichier .env et ajoute tes clés API.
+"No module named 'dotenv'"
+Les dépendances ne sont pas installées. Lance :
+bashpip install -r requirements.txt
+"python: command not found"
+Essaie avec python3 à la place :
+bashpython3 run.py
+L'application refuse de démarrer
+Vérifie ces points dans l'ordre :
 
-## 🐛 Résolution de problèmes
+L'environnement virtuel est bien activé ?
+Le fichier .env existe et contient tes clés API ?
+Toutes les dépendances sont installées ?
+Le port 5000 n'est pas déjà utilisé par une autre appli ?
 
-### ❌ Erreur : "FORECAST_API_KEY n'est pas définie"
-➡️ **Solution** : Vous n'avez pas créé le fichier `.env` ou il est vide
-```bash
-cp .env.example .env
-# Puis éditez .env et ajoutez vos clés
-```
+"Port 5000 already in use"
+Change le port dans ton fichier .env :
+envPORT=8000
+Tu veux contribuer ?
+C'est cool ! Voici comment faire :
 
-### ❌ Erreur : "No module named 'dotenv'"
-➡️ **Solution** : Installez les dépendances
-```bash
-pip install -r requirements.txt
-```
+Fais un fork du projet
+Crée une branche pour ta fonctionnalité (git checkout -b ma-super-feature)
+Fais tes modifications et commit (git commit -m 'Ajout de ma super feature')
+Push sur ta branche (git push origin ma-super-feature)
+Ouvre une Pull Request
 
-### ❌ Erreur : "python: command not found"
-➡️ **Solution** : Utilisez `python3` au lieu de `python`
-```bash
-python3 run.py
-```
+Technologies utilisées
 
-### ❌ L'application ne démarre pas
-➡️ **Solution** : Vérifiez que :
-1. L'environnement virtuel est activé
-2. Le fichier `.env` existe et contient vos clés
-3. Toutes les dépendances sont installées
-4. Le port 5000 n'est pas déjà utilisé
+Backend : Python avec Flask
+Analyse de données : Pandas, NumPy, Scikit-learn
+API météo : WeatherAPI.com
+Frontend : JavaScript classique avec HTML/CSS
+Outils : python-dotenv, requests
 
-### ❌ Erreur : "Port 5000 already in use"
-➡️ **Solution** : Changez le port dans `.env`
-```env
-PORT=8000
-```
+Licence
+Projet sous licence MIT – tu peux faire ce que tu veux avec, ou presque.
+Auteur
+Créé par HyacineD – @HyacineD sur GitHub
+Remerciements
+Merci à WeatherAPI.com pour leur API gratuite et à toute la communauté open source.
 
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! Veuillez :
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/AmazingFeature`)
-3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
-
-## 📝 Technologies utilisées
-
-- **Backend** : Python 3.8+, Flask
-- **Data Science** : Pandas, NumPy, Scikit-learn
-- **API** : WeatherAPI.com
-- **Frontend** : JavaScript, HTML/CSS
-- **Autres** : python-dotenv, requests
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
-## 👨‍💻 Auteur
-
-**HyacineD**
-- GitHub : [@HyacineD](https://github.com/HyacineD)
-
-## 🙏 Remerciements
-
-- [WeatherAPI.com](https://www.weatherapi.com/) pour l'API météo
-- La communauté open source
-
----
-
-## ⚡ Quick Start (pour les développeurs expérimentés)
-
-```bash
-git clone https://github.com/HyacineD/Weather-Forecast-App.git
+Version rapide (si tu connais déjà tout ça)
+bashgit clone https://github.com/HyacineD/Weather-Forecast-App.git
 cd Weather-Forecast-App
 python -m venv env
-source env/bin/activate  # ou env\Scripts\activate sur Windows
+source env/bin/activate              # Windows : env\Scripts\activate
 pip install -r requirements.txt
-cp .env.example .env
-# Éditez .env et ajoutez vos clés API
+cp .env.example .env                 # N'oublie pas d'ajouter tes clés API !
 python run.py
-```
-
-🌐 Ouvrez `http://localhost:5000`
+Puis va sur http://localhost:5000 dans ton navigateur.
